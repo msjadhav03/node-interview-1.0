@@ -369,3 +369,93 @@ console.log(1 === true); // false (number is not strictly equal to boolean)
 ## 117. Describe strategies for implementing feature detection and conditional loading to enhance user experience in JavaScript applications.
 
 ## 118. How do you balance modern web development practices with the need for backward compatibility and accessibility?
+
+1. What is javaScript ?
+   - high level
+   - interpreted programming language
+   - commonly used as client side scripting lanugae
+2. What is the key difference between null and undefined?
+   1. Null - null represents intentional absence of value
+   2. Undefined - represents declared but not defined
+3. What is difference between == and === in javascript?
+   - == : equality operator
+     - comparing values with type conversion
+   - === : strict equality operator
+     - comparing values without type conversion
+4. What is hoisting in javaScript ? (Used)
+
+   - declaration moved to the top of their containing scope during the compilation phase.
+   - allows function and variables to be used before declaration
+   - let, const and class declaration are not hoisted
+
+5. What are closures in javascript ? (Access)
+
+   - closure = function + lexical environment
+   - allowing functions to retain access to their surrounding context
+   - the ability to remember its lexical scope
+
+   ```js
+   function outerFunction() {
+     let outerVariable = "I am from outerFunction";
+
+     function innerFunction() {
+       console.log(outerVariable); // Inner function has access to outerVariable
+     }
+
+     return innerFunction;
+   }
+
+   const closure = outerFunction(); // Call outerFunction and assign the returned inner function to 'closure'
+   closure(); // Invoke the inner function, which still has access to outerVariable
+   ```
+
+   - used for
+     1. Encapsulation
+     2. Data privacy
+     3. Creating modules or factor purposes
+
+6. Explain the event bubbling and event capturing in JavaScript
+7. What is prototype chain in JS?
+   - mechanism for inheritance in JS
+   - object inherit properties and functions from there prototype object.
+   - each object have internal reference to its prototype
+
+```js
+// Define a constructor function
+function Person(name) {
+  this.name = name;
+}
+
+// Add a method to the prototype of Person
+Person.prototype.sayHello = function () {
+  console.log("Hello, my name is " + this.name);
+};
+
+// Create a new object using the Person constructor
+let person = new Person("John");
+
+// Access the sayHello method on the person object
+person.sayHello(); // Output: Hello, my name is John
+
+// The person object inherits the sayHello method from the Person.prototype object
+// and ultimately from Object.prototype
+```
+
+8. What are arrow functions in JavaScript ?
+   - concise way to write functions
+   - shorter syntax
+   - inherit this from surrounding environment.
+9. Explain the difference between let, const, and var in javascript.
+
+   - var : function scoped, allows redecoration and reassignment
+   - let : block-scoped cannot be declared with in the same scope
+   - const : block scoped, cannot be redeclared or reassigned once initialised
+
+10. What are promises in JS ?
+    - object representing the eventual completion or failure of asynchronous operation.
+
+- Alternative to callbacks
+
+11. What is lexical scope in javaScript ?
+    - how variables and functions are scoped and accessed within the code
+    -
